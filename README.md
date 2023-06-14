@@ -1,27 +1,38 @@
-# CdkDragAndDropForm
+# Angular Nested Drag and Drop Sample Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This repository contains a sample project for handling nested drag and drop functionality in Angular using CDK Material. The code is a practical implementation of a solution provided on this StackOverflow [thread](https://stackoverflow.com/questions/67337934/angular-nested-drag-and-drop-cdk-material-cdkdroplistgroup-cdkdroplist-nested/67337935).
 
-## Development server
+## Problem Statement
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+CDK Material's `cdkDropListGroup` does not natively support nested drop lists. The ordering of lists affects drop behavior, and sorting within a nested drop list may not work as expected.
 
-## Code scaffolding
+## Solution
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project provides a workaround by creating a service that determines the correct `cdkDropList` while dragging. It connects the drop lists with the `[cdkDropListConnectedTo]` binding and introduces several methods to handle drag and drop operations.
 
-## Build
+## Project Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The project mainly includes two parts:
 
-## Running unit tests
+- `DragDropService`: A service that registers `cdkDropList`s, determines the correct `cdkDropList` beneath the mouse pointer during a drag operation, and resets the current drop list when the drag operation is released.
+- `FormContainerComponent`: A component that handles drag and drop operations and determines whether a drop operation is allowed at a particular position.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+To utilize this code, clone the repository and use the classes as described in the code comments. Please note that this code is a simplified demonstration of a larger concept, and some parts might not be fully functional.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Disclaimer
 
-## Further help
+This code was created in 2019 as a part of a personal project during a period of illness. Therefore, some sections might not adhere to the best practices. The code is intended to serve as a starting point and should be refined and customized as per the specific requirements of your project.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Acknowledgments
+
+The creation of this project was significantly influenced by the discussions in these posts:
+
+- [GitHub Issue](https://github.com/angular/components/issues/14093#issuecomment-462395200)
+- [StackOverflow Post](https://stackoverflow.com/a/59758611/4549486)
+
+## License
+
+This project is open-sourced under the MIT License. Please check the LICENSE file for more details.
+
