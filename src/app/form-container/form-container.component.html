@@ -1,0 +1,40 @@
+<div
+  *ngIf="container"
+  [id]="id"
+  [class.outline]="showOutline"
+  class="drop-container"
+  cdkDropList
+  [cdkDropListData]="container.controls"
+  (cdkDropListDropped)="dropped($event)"
+  [cdkDropListConnectedTo]="connectedLists"
+  [cdkDropListEnterPredicate]="allowDropPredicate"
+>
+  <div
+    *ngFor="let item of container.controls"
+    class="control-container"
+    cdkDrag
+    [cdkDragData]="item"
+    (cdkDragMoved)="dragMoved($event)"
+    (cdkDragReleased)="dragReleased($event)"
+  >
+    <div class="drag-preview" *cdkDragPlaceholder>
+      <mat-icon>{{ item.iconName }}</mat-icon>
+      {{ item.title }}
+    </div>
+
+    <div class="drag-preview" *cdkDragPreview>
+      <mat-icon>{{ item.iconName }}</mat-icon>
+      {{ item.title }}
+    </div>
+
+    <ng-container [ngSwitch]="item.type">
+      <app-text-box *ngSwitchCase="'TextBox'" [control]="item"></app-text-box>
+      <app-dropdown *ngSwitchCase="'Dropdown'" [control]="item"></app-dropdown>
+      <app-check-box *ngSwitchCase="'CheckBox'" [control]="item"></app-check-box>
+      <app-form-columns
+        *ngSwitchCase="'Columns'"
+        [control]="item | cast"
+      ></app-form-columns>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.draggable-item {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  background-color: lightblue;
+  margin: 2px 0;
+}
+
+.material-icons {
+  margin-right: 0.5rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}

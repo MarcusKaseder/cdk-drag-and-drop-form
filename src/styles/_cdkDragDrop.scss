@@ -1,0 +1,8 @@
+.cdk-drag
+{
+  cursor: move;
+}
+
+body.dragging * {
+  cursor: move !important;
+}

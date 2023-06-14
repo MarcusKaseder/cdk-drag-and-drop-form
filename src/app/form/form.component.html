@@ -1,0 +1,9 @@
+<ng-container *ngIf="formService.form$ | async as form">
+  <h1>{{ form.title }}</h1>
+
+  <app-form-container
+    id="form"
+    [container]="form.container"
+    [showOutline]="false"
+  ></app-form-container>
+</ng-container>

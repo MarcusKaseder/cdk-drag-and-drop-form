@@ -1,0 +1,13 @@
+@import "/src/styles/customBootstrapVariables";
+
+$calculation: calc(#{$grid-gutter-width} / 2 + 0.35rem);
+
+.row {
+  margin-left: calc(#{$calculation} * -1);
+  margin-right: calc(#{$calculation} * -1);
+}
+
+.no-drop {
+  padding-left: $calculation;
+  padding-right: $calculation;
+}

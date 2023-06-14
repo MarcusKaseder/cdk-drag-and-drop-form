@@ -1,0 +1,31 @@
+<div
+  class="col-md-3 col-lg-2 sidebar"
+>
+  <div class="sidebar-sticky">
+    <div
+      id="toolbox"
+      class="navbar-nav flex-column"
+      cdkDropList
+      cdkDropListSortingDisabled
+      (cdkDropListExited)="createItemClone($event)"
+      (cdkDropListEntered)="removeItemClone()"
+      [cdkDropListData]="items"
+      [cdkDropListEnterPredicate]="disallowDropPredicate"
+      [cdkDropListConnectedTo]="connectedLists"
+    >
+      <div
+        *ngFor="let item of items"
+        cdkDrag
+        class="draggable-item"
+        [cdkDragData]="item"
+        (cdkDragMoved)="dragMoved($event)"
+        (cdkDragReleased)="dragReleased($event)"
+      >
+        <span class="material-icons">
+          {{ item.iconName }}
+        </span>
+        {{ item.title }}
+      </div>
+    </div>
+  </div>
+</div>

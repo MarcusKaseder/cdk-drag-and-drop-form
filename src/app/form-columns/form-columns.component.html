@@ -1,0 +1,5 @@
+<div class="row" *ngIf="control">
+  <div class="col-md-6 no-drop" *ngFor="let column of control.columns">
+    <app-form-container [container]="column.container"></app-form-container>
+  </div>
+</div>

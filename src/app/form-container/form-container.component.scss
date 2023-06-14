@@ -1,0 +1,27 @@
+@import "/src/styles/customBootstrapVariables";
+
+.drop-container {
+  min-height: calc(50vh);
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+}
+
+.control-container, .drag-preview {
+  margin: 0.5rem;
+}
+
+.outline {
+  border: 2px dashed $border-color;
+  min-height: 250px;
+}
+
+.drag-preview {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  background-color: lightblue;
+}
+
+.material-icons {
+  margin-right: 0.5rem;
+}
